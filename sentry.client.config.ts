@@ -12,6 +12,9 @@ Sentry.init({
   replaysSessionSampleRate: 0.1,
   replaysOnErrorSampleRate: 1.0,
 
+  // Enable structured logging
+  enableLogs: true,
+
   // Enable debug mode in development
   debug: false,
 
@@ -21,5 +24,7 @@ Sentry.init({
       maskAllText: true,
       blockAllMedia: true,
     }),
+    // Capture console logs (warn and error levels)
+    Sentry.consoleLoggingIntegration({ levels: ["warn", "error"] }),
   ],
 });
